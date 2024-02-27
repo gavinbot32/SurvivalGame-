@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &251690938863948243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1616535475568284489}
+  - component: {fileID: 3918183280495920377}
+  - component: {fileID: 5447263829654737164}
+  m_Layer: 0
+  m_Name: CrateEquip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1616535475568284489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251690938863948243}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.3910882, y: 2.0068257, z: 1.4928658}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3918183280495920377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251690938863948243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675f043b983456f4c8c8dc91b4830e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 9155841499923722160, guid: f17391c58ad564c4b98a4b92e99c74fa, type: 3}
+  phantomPrefab: {fileID: 3853576958778074306, guid: ec059a4b2788e914e89cebc9a2c458b5, type: 3}
+  build_layer:
+    serializedVersion: 2
+    m_Bits: 64
+  phantomMat: {fileID: 2100000, guid: 11748156fc32ae7418a8e220ae2f2ea9, type: 2}
+  redPhantomMat: {fileID: 2100000, guid: f839536e6b4194a4f9fd804739201bc1, type: 2}
+--- !u!114 &5447263829654737164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251690938863948243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286e14336df774544bcf66f3feea490f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ev_equipable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3918183280495920377}
+        m_TargetAssemblyTypeName: Buildable, Assembly-CSharp
+        m_MethodName: build
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  invItem: {fileID: 0}
+  <cooldown>k__BackingField: 0
+  <isCharge>k__BackingField: 0

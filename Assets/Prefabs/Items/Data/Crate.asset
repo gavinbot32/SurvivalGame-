@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae8787d202b53742aa77defb6c80bbc, type: 3}
+  m_Name: Crate
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 1019283ed2f14bd4fb1eb674204d6192, type: 3}
+  itemTag: 0
+  stackable: 0
+  equipable: 1
+  equipmentPrefab: {fileID: 251690938863948243, guid: e1eb6f829532c6a4c9934392cf2c1145, type: 3}
