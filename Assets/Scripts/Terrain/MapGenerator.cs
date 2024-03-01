@@ -10,6 +10,7 @@ public class MapGenerator : MonoBehaviour
 
     public int mapWidth;
     public int mapHeight;
+    private Vector2Int mapSize;
     public float noiseScale;
 
     public int octaves;
@@ -33,10 +34,15 @@ public class MapGenerator : MonoBehaviour
     public TerrainType[] regions;
 
     float[,] falloffMap;
+    
+    [Range(0f,1f)] public float falloffStart;
+    [Range(0f, 1f)] public float falloffEnd;
+
 
     private void Awake()
     {
-        falloffMap = FallOffGenerator.GenerateFalloffMap(mapWidth);
+        mapSize = new Vector2Int(mapWidth, mapHeight);
+        falloffMap = FallOffGenerator.GenerateFalloffMap(mapSize,falloffStart,falloffEnd);
     }
 
 
@@ -80,7 +86,7 @@ public class MapGenerator : MonoBehaviour
         }
         else if (drawMode == DrawMode.Falloff)
         {
-            DrawTexture(TextureFromHeightMap(FallOffGenerator.GenerateFalloffMap(mapWidth)));
+            DrawTexture(TextureFromHeightMap(FallOffGenerator.GenerateFalloffMap(mapSize, falloffStart, falloffEnd)));
         }
 
         
@@ -91,10 +97,12 @@ public class MapGenerator : MonoBehaviour
 
     public void DrawMesh(MeshData meshData, Texture2D texture)
     {
+        meshRenderer.sharedMaterial.mainTexture  = texture;
         meshFilter.sharedMesh = meshData.CreateMesh();
-        meshRenderer.sharedMaterial.mainTexture = texture;
+        meshRenderer.GetComponent<MeshCollider>().sharedMesh = meshFilter.sharedMesh;
+        meshRenderer.transform.localScale = new Vector3(mapWidth,mapHeight,mapHeight);
     }
-    
+
 
     public Texture2D TextureFromHeightMap(float[,] heightMap)
     {
@@ -127,7 +135,7 @@ public class MapGenerator : MonoBehaviour
     public void DrawTexture(Texture2D texture)
     {
         meshRenderer.sharedMaterial.mainTexture = texture;
-        meshRenderer.transform.localScale = new Vector3(texture.width, 1, texture.height);
+        meshRenderer.transform.localScale = new Vector3(texture.width, meshRenderer.transform.localScale.y, texture.height);
     }
 
 
@@ -150,7 +158,8 @@ public class MapGenerator : MonoBehaviour
         {
             octaves = 0;
         }
-        falloffMap = FallOffGenerator.GenerateFalloffMap(mapWidth);
+        mapSize = new Vector2Int(mapWidth, mapHeight);
+        falloffMap = FallOffGenerator.GenerateFalloffMap(mapSize, falloffStart, falloffEnd);
 
     }
 
